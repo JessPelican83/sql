@@ -1,0 +1,34 @@
+CREATE TABLE mobility (Id INTEGER PRIMARY KEY, name TEXT, age INTEGER, LOS INTEGER, mobility_date INTEGER);
+
+INSERT INTO mobility VALUES (1, "HH", 57, 13, 9);
+INSERT INTO mobility VALUES (2, "KM", 63, 22, 15);
+INSERT INTO mobility VALUES (3, "JL", 66, 5, 1);
+INSERT INTO mobility VALUES (4, "CF", 52, 17, 3);
+INSERT INTO mobility VALUES (5, "HU", 83, 8, 2);
+INSERT INTO mobility VALUES (6, "RI", 92, 11, 2);
+INSERT INTO mobility VALUES (7, "WD", 89, 3, 0);
+INSERT INTO mobility VALUES (8, "SF", 88, 8, 0);
+INSERT INTO mobility VALUES (9, "ON", 76, 15, 11);
+INSERT INTO mobility VALUES (10, "RM", 59, 39, 22);
+INSERT INTO mobility VALUES (11, "AN", 68, 8, 0);
+INSERT INTO mobility VALUES (12, "TM", 76, 9, 2);
+INSERT INTO mobility VALUES (13, "CK", 92, 11, 1);
+INSERT INTO mobility VALUES (14, "YG", 97, 17, 5);
+INSERT INTO mobility VALUES (15, "DN", 74, 22, 13);
+INSERT INTO mobility VALUES (16, "JB", 84, 4, 0); 
+INSERT INTO mobility VALUES (17, "DP", 73, 8, 2);
+INSERT INTO mobility VALUES (18, "IM", 43, 19, 8);
+INSERT INTO mobility VALUES (19, "KD", 32, 14, 11);
+INSERT INTO mobility VALUES (20, "CN", 29, 17, 16);
+INSERT INTO mobility VALUES (21, "AP", 100, 6, 0);
+INSERT INTO mobility VALUES (22, "LR", 44, 32, 20);
+INSERT INTO mobility VALUES (23, "BR", 84, 16, 3);
+INSERT INTO mobility VALUES (24, "LP", 37, 7, 0);
+INSERT INTO mobility VALUES (25, "BG", 26, 2, 0);
+INSERT INTO mobility VALUES (26, "GV", 57, 7, 3);
+INSERT INTO mobility VALUES (27, "MT", 48, 5, 2);
+INSERT INTO mobility VALUES (28, "FN", 87, 4, 1);
+SELECT * FROM mobility ORDER BY los;
+
+SELECT avg(LOS) FROM mobility;
+SELECT AVG(mobility_date) FROM mobility;
