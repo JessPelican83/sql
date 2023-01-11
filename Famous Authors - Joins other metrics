@@ -1,0 +1,40 @@
+CREATE TABLE famous_authors (id INTEGER PRIMARY KEY AUTOINCREMENT, name text, number_of_books INTEGER);
+
+INSERT INTO famous_authors (name, number_of_books) VALUES
+("William Shakespear", 42);
+ INSERT INTO famous_authors (name, number_of_books) VALUES ("Agatha Christie", 85);
+ INSERT INTO famous_authors (name, number_of_books) VALUES ("Danielle Stelle", 179);
+ INSERT INTO famous_authors (name, number_of_books) VALUES ("Enid Blyton", 800);
+ INSERT INTO famous_authors (name, number_of_books) VALUES ("J.K. Rowling", 22);
+ INSERT INTO famous_authors (name, number_of_books) VALUES ("Dr. Suess", 44);
+ INSERT INTO famous_authors (name, number_of_books) VALUES ("R.L. Stein", 430);
+ INSERT INTO famous_authors (name, number_of_books) VALUES ("Stephen King", 77);
+ INSERT INTO famous_authors (name, number_of_books) VALUES ("Louis, L'amour", 101);
+ INSERT INTO famous_authors (name, number_of_books) VALUES ("James Patterson", 98);
+ INSERT INTO famous_authors (name, number_of_books) VALUES ("John Grisham", 22);
+ INSERT INTO famous_authors (name, number_of_books) VALUES ("J.R.R. Tolkien", 36);
+SELECT * FROM famous_authors WHERE number_of_books >= 40 ORDER BY number_of_books DESC;
+
+CREATE TABLE author_home (id INTEGER PRIMARY KEY AUTOINCREMENT, author_id INTEGER, home_country TEXT);
+
+INSERT INTO author_home (author_id, home_country) VALUES (2, "United Kingdom");
+INSERT INTO author_home (author_id, home_country) VALUES (5, "United Kingdom");
+INSERT INTO author_home (author_id, home_country) VALUES (11, "USA");
+INSERT INTO author_home (author_id, home_country) VALUES (1, "United Kingdom");
+INSERT INTO author_home (author_id, home_country) VALUES (6, "USA");
+INSERT INTO author_home (author_id, home_country) VALUES (8, "USA");
+INSERT INTO author_home (author_id, home_country) VALUES ( 10, "USA");
+INSERT INTO author_home (author_id, home_country) VALUES (9, "USA");
+INSERT INTO author_home (author_id, home_country) VALUES (3, "USA");
+INSERT INTO author_home (author_id, home_country) VALUES ( 7, "USA");
+INSERT INTO author_home (author_id, home_country) VALUES (4, "United Kingdom");
+INSERT INTO author_home (author_id, home_country) VALUES ( 12, "south africa");
+
+SELECT max(number_of_books), name from famous_authors;
+
+SELECT name, number_of_books, CASE when number_of_books > 100 then "lotta books" when number_of_books < 100 then "notta lotta books" END AS book_power FROM famous_authors;
+
+SELECT COUNT (home_country), home_country FROM author_home GROUP BY home_country;
+
+
+SELECT famous_authors.name , author_home.home_country, famous_authors.number_of_books FROM famous_authors LEFT OUTER JOIN author_home where famous_authors.id = author_home.author_id;
