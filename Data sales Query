@@ -1,0 +1,39 @@
+Here I am using SQLiteStudio to query some sales data.
+
+
+HOW MANY ORDERS WERE PLACED IN JANUARY?
+
+SELECT * FROM BIT_DB.customers LIMIT 20;
+SELECT * FROM BIT_DB.JanSales LIMIT 20;
+SELECT COUNT (orderid) FROM BIT_DB.JanSales WHERE length (orderid) = 6 AND orderid<> 'OrderID';
+
+How many of those were for an iPhone?
+SELECT COUNT (orderid) FROM BIT_DB.JanSales WHERE product = 'iPhone' AND length (orderid) = 6 AND orderid<> 'OrderID';
+
+Customer Acct numbers for orders placed in Feb?
+SELECT customers.acctnum
+FROM BIT_DB.customers JOIN BIT_DB.FebSales ON customers.order_id = FebSales.orderID;
+
+Cheapest product and price sold in January?
+SELECT product, price 
+FROM BIT_DB.JanSales
+ORDER BY price ASC
+LIMIT 1;
+
+
+Total revenue for each product sold in January?
+Select product, price, quantity, (quantity*price) as revenue
+FROM BIT_DB.JanSales
+GROUP BY product;
+
+Which products were sold in February at 548 Lincoln St, Seattle, WA 98101, how many of each were sold, and what was the total revenue?
+Select product, price, quantity, (quantity*price) as revenue
+FROM BIT_DB.FebSales
+WHERE location = '548 Lincoln St, Seattle, WA 98101'
+GROUP BY product;
+
+
+How many customers ordered more than 2 products at a time in February, and what was the average amount spent for those customers? 
+SELECT COUNT (orderID) , AVG(price) as Average
+FROM BIT_DB.FebSales
+WHERE quantity > 2
